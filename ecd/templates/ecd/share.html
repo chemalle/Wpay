@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Share a post{% endblock %}
+
+{% block content %}
+    {% if sent %}
+        <h1>E-mail successfully sent</h1>
+        <p>"{{ post.title }}" was successfully sent by neXThinking.</p>
+    {% else %}
+        <h1>Receba sua ECD agora por e-mail</h1>
+        <p>O contratante esta ciente que deve agregar os demais dados de 2017 relacionados ao periodo fora de nosso escopo descrito no Distrato lido e devidamente pago em 2017 e que nao é de nossa responsabilidade fazer qualquer adequacao fora do que estiver expressamente descrito em Lei e no proprio distrato.</p>
+        <form action="." method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Send e-mail">
+        </form>
+    {% endif %}
+{% endblock %}
